@@ -12,21 +12,32 @@ export const styles_app = StyleSheet.create({
 export const styles_login = StyleSheet.create({
     textInput: {
         backgroundColor: '#FFFFFF',
-        textAlign: 'center',
+        textAlign: 'left',
+        paddingLeft: 10,
         margin: 10,
         borderRadius: 20,
+        borderWidth: 0,
         shadowColor: 'black',
         shadowOffset: { 
             width: -1.5,
             height: 3,
         },
-        shadowOpacity: 0.20,
+        shadowOpacity: 0.18,
     },
     text: {
         fontSize: 20,
     },
     button: {
+        margin: 20,
+        width: 100,
+        height: 30,
         backgroundColor: '#8BA6AC',
         borderRadius: 20,
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 10
+    },
+    button_text: {
+        color:"white"
     }
 })

@@ -3,10 +3,10 @@ import { Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { Login } from './screens/Login';
+import { Logon } from './screens/Logon';
 import { HomeButtomTabs } from './navigations/HomeButtomTabs';
 import { MenuDrawer } from './navigations/MenuDrawer';
-
-import { Login } from './screens/Login';
 
 import { styles_app } from './styles/styles';
 
@@ -24,6 +24,10 @@ export default function App() {
       <Stack.Screen
         name='Login'
         component={Login}
+      />
+      <Stack.Screen
+        name='Logon'
+        component={Logon}
       />
       <Stack.Screen
         name='Home'

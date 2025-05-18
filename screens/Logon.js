@@ -1,20 +1,20 @@
 import { Button, SafeAreaView, Text, TextInput, TouchableOpacity} from "react-native-web";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Alert } from "react-native";
 import { useState } from "react";
 
 import { auth } from "../FireBaseConfig";
-import { signInWithEmailAndPassword } from "firebase/auth";
-
-import { Logon } from "./Logon";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { styles_app, styles_login } from "../styles/styles";
+import { Alert } from "react-native";
 
-export function Login({navigation}){
+export function Logon({navigation}){
+    const [usuario, setUsuario] = useState("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+    const [senhaCheck, setSenhaCheck] = useState("");
 
-    const handleLogin = async () => {
+    const handleLogon = async () => {
         if(!email.includes(".com") || !email.includes("@")){
             alert("E-mail inválido!!!!!!!!!!!!!!!")
             return;
@@ -25,13 +25,12 @@ export function Login({navigation}){
             alert("Senha menor que 6 digitos")
             return;
         }
-
         try{
-            const user = await signInWithEmailAndPassword(auth, email, senha);
+            const user = await createUserWithEmailAndPassword(auth, email, senhaCheck);
             if (user) navigation.replace("Menu");
         }catch(error){
             console.log(error);
-            alert(`Erro ao realizar login: ${error}`);
+            alert(`Erro ao realizar logon: ${error}`);
             return;
         }
     }
@@ -40,6 +39,15 @@ export function Login({navigation}){
         <SafeAreaProvider>
         <SafeAreaView style={styles_app.container}>
             <Text style={styles_login.text}>Login</Text>
+            <TextInput
+                inputMode="text"
+                keyboardType="default"
+                placeholder="username"
+                placeholderTextColor="#d3d3d3"
+                onChangeText={setUsuario}
+                value={usuario}
+                style={styles_login.textInput}
+            />
             <TextInput
                 inputMode="email"
                 keyboardType="email-address"
@@ -58,17 +66,20 @@ export function Login({navigation}){
                 value={senha}
                 style={styles_login.textInput}
             />
+            <TextInput
+                inputMode="text"
+                keyboardType="default"
+                placeholder="senha check"
+                placeholderTextColor="#d3d3d3"
+                onChangeText={setSenhaCheck}
+                value={senhaCheck}
+                style={styles_login.textInput}
+            />
             <TouchableOpacity 
                 style={styles_login.button}
-                onPress={handleLogin}
+                onPress={handleLogon}
                 >
-                <Text style={styles_login.button_text}>Entrar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity 
-                style={[styles_login.button, {backgroundColor: "#BDCDD0"}]}
-                onPress={() => navigation.navigate("Logon")}
-                >
-                <Text style={[styles_login.button_text, {color: "#333333"}]}>Criar Conta</Text>
+                <Text style={styles_login.button_text}>Criar</Text>
             </TouchableOpacity>
         </SafeAreaView>
         </SafeAreaProvider>

@@ -7,7 +7,7 @@ export function Home({navigation}){
     return(
         <SafeAreaProvider>
         <SafeAreaView style={styles_app.container}>
-            <Text></Text>
+            <Text>Teste</Text>
         </SafeAreaView>
         </SafeAreaProvider>
     )
