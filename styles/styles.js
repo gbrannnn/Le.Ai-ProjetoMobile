@@ -40,4 +40,13 @@ export const styles_login = StyleSheet.create({
     button_text: {
         color:"white"
     }
+});
+
+export const styles_splash = StyleSheet.create({
+  image: {
+    width: 100,
+    height: 100,
+    resizeMode: "cover"
+  },
+  
 })
