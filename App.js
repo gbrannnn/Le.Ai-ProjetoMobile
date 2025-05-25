@@ -11,50 +11,46 @@ import { HomeButtomTabs } from './navigations/HomeButtomTabs';
 import { MenuDrawer } from './navigations/MenuDrawer';
 
 import { styles_app } from './styles/styles';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './FireBaseConfig';
 
 
 export default function App() {
 
   const Stack = createNativeStackNavigator();
   const [isLoading, setIsLoading] = useState(true)
+  const [CurrentUser, setCurrentUser] = useState(null)
 
-  useEffect(()=> {
-    const timer = setTimeout(()=> {
-      setIsLoading(false);
-    },3500);
-    return () => clearTimeout(timer)
-  },[]);
+
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const checkLogin = onAuthStateChanged(auth, (user) => {
+        setCurrentUser(user);
+        console.log(CurrentUser);
+        setIsLoading(false);
+      });
+
+      return () => checkLogin(); 
+    }, 3500);
+    return () => clearTimeout(timer); 
+  }, []);
 
   return (
     <NavigationContainer>
-      <Stack.Navigator 
-        initialRouteName={isLoading? 'Splash':'Login'}
-        screenOptions={{ headerShown: false }}
-      >
-      {isLoading ? (
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        {isLoading ? (
           <Stack.Screen name="Splash" component={Splash} />
+        ) : CurrentUser  ? (
+          <Stack.Screen name="Home" component={MenuDrawer} />
         ) : (
-        <>
-          <Stack.Screen
-            name='Login'
-            component={Login}
-          />
-          <Stack.Screen
-            name='Logon'
-            component={Logon}
-          />
-          <Stack.Screen
-            name='Home'
-            options={title="Home"}
-            component={HomeButtomTabs}
-          />
-          <Stack.Screen
-            name='Menu'
-            options={title="Menu"}
-            component={MenuDrawer}
-          />
-        </>
-      )}
+          <>
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Logon" component={Logon} />
+          </>
+        )}
+        <Stack.Screen name="Menu" component={MenuDrawer} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -48,5 +48,10 @@ export const styles_splash = StyleSheet.create({
     height: 100,
     resizeMode: "cover"
   },
+  spinner: {
+    marginVertical: 20,
+    transform: [{ scale: 1.5 }], // aumenta o tamanho visual
+  },
+
   
 })
