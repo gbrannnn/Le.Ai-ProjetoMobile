@@ -76,6 +76,22 @@ export const styles_splash = StyleSheet.create({
   
 });
 
+export const styles_icon = StyleSheet.create({
+  iconContainer: {
+    padding: 8,
+    borderRadius: 30,
+  },
+  icon: {
+    display: 'flex',
+  },
+
+  iconFocused: {
+    borderWidth: 2,
+    borderColor: '#000',
+    backgroundColor: '#E0E0D1',
+  },
+});
+
 export const styles_logout = StyleSheet.create({
     centeredView: {
         flex: 1,
