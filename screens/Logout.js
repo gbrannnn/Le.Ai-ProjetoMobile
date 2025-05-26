@@ -1,4 +1,4 @@
-import { SafeAreaView, Text, Modal, Pressable, View } from "react-native-web";
+import { SafeAreaView, Text, Modal, Pressable, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
 

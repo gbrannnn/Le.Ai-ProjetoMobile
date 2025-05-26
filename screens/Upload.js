@@ -1,5 +1,6 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { SafeAreaView, Text, View, TouchableOpacity, Button } from "react-native-web";
+import { SafeAreaView, Text, View, TouchableOpacity, Button, Image } from "react-native";
+import UploadImage from '../assets/uploadImage.png'
 import React, { useState } from 'react';
 
 import * as DocumentPicker from 'expo-document-picker';
@@ -32,6 +33,7 @@ export function Upload() {
             <SafeAreaView style={[styles_app.container, { backgroundColor: "#1D3557" }]}>
                 <View style={styles_upload.container}>
                     <View style={styles_upload.card}>
+                        <Image source={UploadImage} style={styles_upload.image}/>
                         <TouchableOpacity
                             style={styles_upload.button}
                             onPress={() => handleDocumentPicker()}
