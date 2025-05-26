@@ -118,3 +118,41 @@ export const styles_logout = StyleSheet.create({
         textAlign: 'center',
     },
 });
+
+export const styles_upload = StyleSheet.create({
+    container: {
+        flex: 1,
+        width: '97%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: "#F1FAEE",
+        borderRadius: 5
+    },
+    card: {
+        width: 320,
+        height: 575,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: "#3D6271",
+        borderRadius: 50,
+    },
+    text: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: "#1D3557",
+    },
+    button: {
+        width: 130,
+        height: 45,
+        backgroundColor: '#45A298',
+        borderRadius: 20,
+        marginTop: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+        text: {
+            fontSize: 12,
+            color: '#F1FAEE',
+            fontWeight: 'bold',
+        }
+    }
+});

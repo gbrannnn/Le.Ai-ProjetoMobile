@@ -28,12 +28,12 @@ export function HomeButtomTabs({navigation}){
             <Tab.Screen 
                 name='Biblioteca'
                 component={Home}
-                options={{ tabBarLabel: 'Home',  headerShown: true}}
+                options={{ tabBarLabel: 'Home',  headerShown: false}}
             />
             <Tab.Screen
                 name='Subir livros'
                 component={Upload}
-                options={{ tabBarLabel: 'Upload',  headerShown: true}}
+                options={{ tabBarLabel: 'Upload',  headerShown: false}}
             />
         </Tab.Navigator>
     )
