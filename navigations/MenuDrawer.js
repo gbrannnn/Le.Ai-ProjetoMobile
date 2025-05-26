@@ -11,6 +11,17 @@ export function MenuDrawer({ navigation }) {
     return (
         <Drawer.Navigator
             initialRouteName='Home'
+            screenOptions={{
+                drawerStyle: {
+                    backgroundColor: '#F1FAEE',
+                    width: 240,
+                },
+                drawerActiveBackgroundColor: '#A8DADC',
+                drawerActiveTintColor: '#1D3557',
+                drawerLabelStyle: {
+                    fontSize: 15,
+                },
+            }}
         >
             <Drawer.Screen
                 name='Home'
