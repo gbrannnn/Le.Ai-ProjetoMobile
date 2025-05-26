@@ -38,7 +38,7 @@ export function Login({navigation}){
 
     return(
         <SafeAreaProvider>
-        <SafeAreaView style={styles_app.container}>
+        <SafeAreaView style={styles_login.container}>
             <Text style={styles_login.text}>Login</Text>
             <TextInput
                 inputMode="email"
@@ -55,6 +55,7 @@ export function Login({navigation}){
                 placeholder="senha"
                 placeholderTextColor="#d3d3d3"
                 onChangeText={setSenha}
+                secureTextEntry={true}
                 value={senha}
                 style={styles_login.textInput}
             />
@@ -65,10 +66,10 @@ export function Login({navigation}){
                 <Text style={styles_login.button_text}>Entrar</Text>
             </TouchableOpacity>
             <TouchableOpacity 
-                style={[styles_login.button, {backgroundColor: "#BDCDD0"}]}
+                style={[styles_login.button, {backgroundColor: "#3D899C", marginTop: 20}]}
                 onPress={() => navigation.navigate("Logon")}
                 >
-                <Text style={[styles_login.button_text, {color: "#333333"}]}>Criar Conta</Text>
+                <Text style={styles_login.button_text}>Criar Conta</Text>
             </TouchableOpacity>
         </SafeAreaView>
         </SafeAreaProvider>

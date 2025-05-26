@@ -37,8 +37,8 @@ export function Logon({navigation}){
 
     return(
         <SafeAreaProvider>
-        <SafeAreaView style={styles_app.container}>
-            <Text style={styles_login.text}>Login</Text>
+        <SafeAreaView style={styles_login.container}>
+            <Text style={styles_login.text}>Criar Conta</Text>
             <TextInput
                 inputMode="text"
                 keyboardType="default"
@@ -76,10 +76,16 @@ export function Logon({navigation}){
                 style={styles_login.textInput}
             />
             <TouchableOpacity 
-                style={styles_login.button}
+                style={[styles_login.button, {backgroundColor: "#3D899C"}]}
                 onPress={handleLogon}
                 >
                 <Text style={styles_login.button_text}>Criar</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles_login.button, {marginTop: 20}]}
+                onPress={navigation.goBack}
+                >
+                <Text style={styles_login.button_text}>Voltar</Text>
             </TouchableOpacity>
         </SafeAreaView>
         </SafeAreaProvider>

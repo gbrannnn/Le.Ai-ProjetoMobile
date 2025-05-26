@@ -3,55 +3,118 @@ import { StyleSheet } from "react-native";
 export const styles_app = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F8EC',
+    backgroundColor: '#D8F8B7',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
 export const styles_login = StyleSheet.create({
-    textInput: {
-        backgroundColor: '#FFFFFF',
-        textAlign: 'left',
-        paddingLeft: 10,
-        margin: 10,
-        borderRadius: 20,
-        borderWidth: 0,
-        shadowColor: 'black',
-        shadowOffset: { 
-            width: -1.5,
-            height: 3,
-        },
-        shadowOpacity: 0.18,
-    },
-    text: {
-        fontSize: 20,
-    },
-    button: {
-        margin: 20,
-        width: 100,
-        height: 30,
-        backgroundColor: '#8BA6AC',
-        borderRadius: 20,
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: 10
-    },
-    button_text: {
-        color:"white"
-    }
+  container: {
+      flex: 1,
+      backgroundColor: '#D8F8B7',
+      alignItems: 'center',
+      justifyContent: 'center',
+  },
+  textInput: {
+      width: 300,
+      height: 25,
+      backgroundColor: '#FFFFFF',
+      textAlign: 'left',
+      paddingLeft: 10,
+      margin: 10,
+      borderRadius: 20,
+      borderWidth: 0,
+      shadowColor: 'black',
+      shadowOffset: { 
+          width: -1.5,
+          height: 3,
+      },
+      shadowOpacity: 0.18,
+  },
+  text: {
+      fontSize: 32,
+      fontWeight: 'bold',
+      color: '#1D3557',
+      marginBottom: 50,
+      
+  },
+  button: {
+      marginTop: 50,
+      width: 150,
+      height: 30,
+      backgroundColor: '#45A298',
+      borderRadius: 20,
+      alignItems: "center",
+      justifyContent: "center",
+      fontSize: 10
+  },
+  button_text: {
+      fontSize: 12,
+      fontWeight: 'bold',
+      color: "#F1FAEE"
+  }
 });
 
 export const styles_splash = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#D8F8B7',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   image: {
-    width: 100,
-    height: 100,
+    width: 200,
+    height: 200,
     resizeMode: "cover"
   },
   spinner: {
     marginVertical: 20,
-    transform: [{ scale: 1.5 }], // aumenta o tamanho visual
+    transform: [{ scale: 1.5 }],
   },
 
   
-})
+});
+
+export const styles_logout = StyleSheet.create({
+    centeredView: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    modalView: {
+        margin: 20,
+        backgroundColor: 'white',
+        borderRadius: 20,
+        padding: 35,
+        alignItems: 'center',
+        shadowColor: '#000',
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        elevation: 5,
+    },
+    button: {
+        borderRadius: 20,
+        padding: 10,
+        elevation: 2,
+    },
+    buttonOpen: {
+        backgroundColor: '#F194FF',
+    },
+    buttonClose: {
+        backgroundColor: '#2196F3',
+    },
+    textStyle: {
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    modalText: {
+        marginBottom: 15,
+        textAlign: 'center',
+    },
+});

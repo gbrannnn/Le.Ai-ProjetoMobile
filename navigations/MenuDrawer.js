@@ -1,5 +1,3 @@
-import React from 'react';
-import { Button } from 'react-native-web';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { Upload } from '../screens/Upload';
@@ -7,10 +5,10 @@ import { Colecao } from '../screens/Colecao';
 import { HomeButtomTabs } from './HomeButtomTabs';
 import { Logout } from '../screens/Logout';
 
-export function MenuDrawer({navigation}){
+export function MenuDrawer({ navigation }) {
     const Drawer = createDrawerNavigator();
 
-    return(
+    return (
         <Drawer.Navigator
             initialRouteName='Home'
         >
@@ -27,7 +25,10 @@ export function MenuDrawer({navigation}){
                 component={Upload}
             />
             <Drawer.Screen
-                name='Logout'
+                options={{
+                    headerShown: false
+                }}
+                name="Logout"
                 component={Logout}
             />
         </Drawer.Navigator>
