@@ -39,7 +39,7 @@ export function HomeButtomTabs({navigation}){
             <Tab.Screen 
                 name='Biblioteca'
                 component={Home}
-                options={{ tabBarLabel: 'Home',  headerShown: true, tabBarIcon: () => (
+                options={{ tabBarLabel: 'Home',  headerShown: false, tabBarIcon: () => (
                     <View style={styles_icon.icon}>
                         <Image
                         source={HomeIcon}
@@ -62,7 +62,7 @@ export function HomeButtomTabs({navigation}){
             <Tab.Screen
                 name='Subir livros'
                 component={Upload}
-                options={{ tabBarLabel: 'Upload',  headerShown: true,  tabBarIcon: () => (
+                options={{ tabBarLabel: 'Upload',  headerShown: false,  tabBarIcon: () => (
                     <View style={styles_icon.icon}>
                         <Image
                         source={UploadIcon}

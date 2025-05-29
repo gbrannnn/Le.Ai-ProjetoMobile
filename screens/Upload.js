@@ -7,7 +7,7 @@ import * as DocumentPicker from 'expo-document-picker';
 
 import { styles_app, styles_upload} from "../styles/styles";
 
-export function Upload() {
+export function Upload({navigation}) {
     const [file, setFile] = useState(null);
 
     const handleDocumentPicker = async () => {

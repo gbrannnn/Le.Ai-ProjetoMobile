@@ -161,7 +161,7 @@ export const styles_icon = StyleSheet.create({
 
 export const styles_logout = StyleSheet.create({
     centeredView: {
-        flex: 1,
+        //flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -216,7 +216,7 @@ export const styles_upload = StyleSheet.create({
         height: 575,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#3D6271",
+        backgroundColor: "#1D3557",
         borderRadius: 50,
     },
     image: {
