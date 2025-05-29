@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, Text } from "react-native-web";
+import { Button, SafeAreaView, Text } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { styles_app } from "../styles/styles";

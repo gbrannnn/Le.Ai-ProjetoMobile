@@ -18,7 +18,7 @@ export const styles_login = StyleSheet.create({
   },
   textInput: {
       width: 300,
-      height: 25,
+      height: 35,
       backgroundColor: '#FFFFFF',
       textAlign: 'left',
       paddingLeft: 10,
@@ -38,6 +38,51 @@ export const styles_login = StyleSheet.create({
       color: '#1D3557',
       marginBottom: 50,
       
+  },
+  topRightCircle: {
+    position: 'absolute',
+    top: -100,
+    right: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
+  },
+  bottomLeftCircle: {
+    position: 'absolute',
+    bottom: -100,
+    left: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
+  },
+
+  topLeftCircle: {
+    position: 'absolute',
+    top: -100,
+    left: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
+  },
+  bottomRightCircle: {
+    position: 'absolute',
+    bottom: -100,
+    right: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
   },
   button: {
       marginTop: 50,
@@ -68,6 +113,28 @@ export const styles_splash = StyleSheet.create({
     height: 200,
     resizeMode: "cover"
   },
+    topRightCircle: {
+    position: 'absolute',
+    top: -100,
+    right: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
+  },
+  bottomLeftCircle: {
+    position: 'absolute',
+    bottom: -100,
+    left: -100,
+    width: 200,
+    height: 200,
+    borderRadius: 100,
+    borderWidth: 30,
+    borderColor: '#2F5D6E',
+    backgroundColor: 'transparent',
+  },
   spinner: {
     marginVertical: 20,
     transform: [{ scale: 1.5 }],
@@ -76,9 +143,25 @@ export const styles_splash = StyleSheet.create({
   
 });
 
+export const styles_icon = StyleSheet.create({
+  iconContainer: {
+    padding: 8,
+    borderRadius: 30,
+  },
+  icon: {
+    display: 'flex',
+  },
+
+  iconFocused: {
+    borderWidth: 2,
+    borderColor: '#000',
+    backgroundColor: '#E0E0D1',
+  },
+});
+
 export const styles_logout = StyleSheet.create({
     centeredView: {
-        flex: 1,
+        //flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -133,9 +216,15 @@ export const styles_upload = StyleSheet.create({
         height: 575,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: "#3D6271",
+        backgroundColor: "#1D3557",
         borderRadius: 50,
     },
+    image: {
+        width: 160,
+        height: 140,
+        resizeMode: "contain",
+    },
+
     text: {
         fontSize: 20,
         fontWeight: 'bold',

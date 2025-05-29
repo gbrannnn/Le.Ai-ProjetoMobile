@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, Text, TextInput, TouchableOpacity} from "react-native-web";
+import { Button, SafeAreaView,View, Text, TextInput, TouchableOpacity} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
 
@@ -38,6 +38,8 @@ export function Logon({navigation}){
     return(
         <SafeAreaProvider>
         <SafeAreaView style={styles_login.container}>
+            <View style={[styles_login.topRightCircle, { backgroundColor: "#2F5D6E" }]} />
+            <View style={[styles_login.bottomLeftCircle, { backgroundColor: "#2F5D6E" }]} />
             <Text style={styles_login.text}>Criar Conta</Text>
             <TextInput
                 inputMode="text"

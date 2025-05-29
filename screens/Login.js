@@ -1,4 +1,4 @@
-import { Button, SafeAreaView, Text, TextInput, TouchableOpacity} from "react-native-web";
+import { Button, SafeAreaView,View, Text, TextInput, TouchableOpacity} from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Alert } from "react-native";
 import { useState } from "react";
@@ -39,6 +39,8 @@ export function Login({navigation}){
     return(
         <SafeAreaProvider>
         <SafeAreaView style={styles_login.container}>
+            <View style={[styles_login.topLeftCircle ,{ backgroundColor: "#2F5D6E" }, {}]} />
+            <View style={[styles_login.bottomRightCircle,{ backgroundColor: "#2F5D6E" }]} />
             <Text style={styles_login.text}>Login</Text>
             <TextInput
                 inputMode="email"
