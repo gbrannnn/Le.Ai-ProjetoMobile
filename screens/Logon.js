@@ -2,7 +2,7 @@ import { Button, SafeAreaView,View, Text, TextInput, TouchableOpacity} from "rea
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
 
-import { auth } from "../FireBaseConfig";
+import  {auth}  from "../FireBaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { styles_app, styles_login } from "../styles/styles";
