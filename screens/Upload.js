@@ -32,23 +32,27 @@ export function Upload({navigation}) {
     const auth = getAuth();
     const user = auth.currentUser;
 
-    const carregarDados = async () => {
-        try {
-            const querySnapshot = await getDocs(collection(db, 'categorias'));
-            const categorias = [];
 
-            querySnapshot.forEach((doc) => {
-            if (doc.data().userId === user.uid) {
-                categorias.push({
-                categoria: doc.id,
-                data: doc.data(),
-                });
-            }
+    const carregarDados = async () => {
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        if (!user) return;
+
+        try {
+            const pdfsSnapshot = await getDocs(collection(db, 'usuarios', user.uid, 'pdfs'));
+            const listaPDFs = [];
+
+            pdfsSnapshot.forEach((doc) => {
+            listaPDFs.push({
+                id: doc.id,
+                ...doc.data(),
+            });
             });
 
-            setData(categorias);
+            setData(listaPDFs);
         } catch (error) {
-            console.error('Erro ao carregar dados:', error);
+            console.error('Erro ao carregar PDFs:', error);
         }
     };
 
@@ -79,16 +83,10 @@ export function Upload({navigation}) {
             return;
         }
 
-
         try {
-            
-            const categoriaExistente = data.find(
-            (d) => d.categoria === novaCategoria && d.userId === user.uid
-            );
-
-            // 👇 Cria o item com metadados do arquivo (se existir)
             const itemComArquivo = {
             nome: novoItem,
+            categoria: novaCategoria,
             arquivo: file
                 ? {
                     nome: file.name,
@@ -97,40 +95,25 @@ export function Upload({navigation}) {
                     tamanho: file.size,
                 }
                 : null,
+            criadoEm: new Date(),
             };
 
-            const novaLista = categoriaExistente
-            ? [...categoriaExistente.data, itemComArquivo]
-            : [itemComArquivo];
+            // 👇 Cria um novo documento na subcoleção pdfs
+            const pdfRef = doc(collection(db, 'usuarios', user.uid, 'pdfs'));
+            await setDoc(pdfRef, itemComArquivo);
 
-            const categoriaRef = doc(db, 'categorias', `${user.uid}_${novaCategoria}`);
-                    // Verifica se o documento já existe
-            const categoriaDoc = await getDoc(categoriaRef);
-
-            if (categoriaDoc.exists()) {
-                // Atualiza adicionando item ao array 'data' usando arrayUnion
-                await updateDoc(categoriaRef, {
-                    data: arrayUnion(itemComArquivo)
-                });
-            } else {
-                await setDoc(categoriaRef, {
-                    data: novaLista,
-                    categoria: novaCategoria,
-                    userId: user.uid,
-                });
-            }
-            // Limpa tudo depois de salvar
+            // Limpa os campos
             setNovaCategoria('');
             setNovoItem('');
             setFile(null);
             setModalVisible(false);
-            carregarDados();
-            console.log('Item salvo: ',novaLista);
+            carregarDados(); // nova versão
         } catch (error) {
-            console.error('Erro ao adicionar item:', error);
-            alert('Erro ao adicionar item');
+            console.error('Erro ao adicionar PDF:', error);
+            alert('Erro ao adicionar PDF');
         }
     };
+
 
 
 

@@ -6,6 +6,8 @@ import  {auth}  from "../FireBaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import { styles_app, styles_login } from "../styles/styles";
+import { doc, setDoc } from "firebase/firestore";
+import {db} from '../FireBaseConfig'
 import { Alert } from "react-native";
 
 export function Logon({navigation}){
@@ -25,13 +27,20 @@ export function Logon({navigation}){
             alert("Senha menor que 6 digitos")
             return;
         }
-        try{
-            const user = await createUserWithEmailAndPassword(auth, email, senhaCheck);
-            if (user) navigation.replace("Menu");
-        }catch(error){
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, senhaCheck);
+            const user = userCredential.user;
+
+            // 👇 Cria documento no Firestore com dados do usuário
+            await setDoc(doc(db, "usuarios", user.uid), {
+                email: user.email,
+                criadoEm: new Date(),
+            });
+
+            navigation.replace("Menu");
+            } catch (error) {
             console.log(error);
             alert(`Erro ao realizar logon: ${error}`);
-            return;
         }
     }
 
