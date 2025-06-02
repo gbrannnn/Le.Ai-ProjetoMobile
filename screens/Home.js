@@ -7,7 +7,8 @@ import { getAuth } from 'firebase/auth';
 import { collection, getDocs, getDoc, updateDoc, setDoc, doc, arrayUnion } from 'firebase/firestore';
 import { db } from '../FireBaseConfig';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect,useCallback  } from "react";
+import { useFocusEffect } from '@react-navigation/native';
 
 
 export function Home({ navigation }) {
@@ -18,14 +19,14 @@ export function Home({ navigation }) {
 
     const carregarDados = async () => {
         try {
-            const querySnapshot = await getDocs(collection(db, 'categorias'));
+            const querySnapshot = await getDocs(collection(db, 'usuarios', user.uid, 'pdfs'));
             const documentos = [];
             querySnapshot.forEach((doc) => {
-                if (doc.data().userId === user.uid) {
-                    (doc.data().data).forEach((data) => {
-                        documentos.push({ name: data.arquivo.nome, data: data.arquivo.uri});
-                    })
+                const dados = doc.data();
+                if (dados.arquivo) {
+                    documentos.push({ name: dados.arquivo.nome, data: dados.arquivo.uri, id: doc.id});
                 }
+                
             });
             setListaPdf(documentos);
         } catch (error) {
@@ -33,10 +34,11 @@ export function Home({ navigation }) {
         }
     }
 
-    useEffect(() => {
-        carregarDados(); 
-    }, []);
-
+    useFocusEffect(
+        useCallback(() => {
+        carregarDados();
+        }, [])
+    );
     return (
         <SafeAreaProvider>
             <SafeAreaView style={[styles_app.container, { backgroundColor: "#1D3557" }]}>

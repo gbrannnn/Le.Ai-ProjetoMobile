@@ -7,7 +7,7 @@ import * as DocumentPicker from 'expo-document-picker';
 
 import { styles_app, styles_upload} from "../styles/styles";
 import { getAuth } from 'firebase/auth';
-import { collection, getDocs,getDoc,updateDoc, setDoc, doc,arrayUnion  } from 'firebase/firestore';
+import { collection, getDocs,getDoc,updateDoc, setDoc, doc,arrayUnion, query, where,   } from 'firebase/firestore';
 
 
 import {db} from '../FireBaseConfig'
@@ -17,6 +17,7 @@ export function Upload({navigation}) {
     const [data, setData] = useState([]);
     const [novaCategoria, setNovaCategoria] = useState('');
     const [novoItem, setNovoItem] = useState('');
+    const [modalVisible, setModalVisible] = useState('');
 
     useEffect(() => {
         carregarDados();
@@ -46,6 +47,7 @@ export function Upload({navigation}) {
             });
 
             setData(listaPDFs);
+
         } catch (error) {
             console.error('Erro ao carregar PDFs:', error);
         }
@@ -63,6 +65,7 @@ export function Upload({navigation}) {
             if (result.canceled)return;
             
             setFile(result.assets[0]);
+            console.log(File);
         } catch (error) {
             console.error('Erro ao selecionar documento:', error);
             
@@ -76,11 +79,29 @@ export function Upload({navigation}) {
             alert('Usuário não autenticado!');
             return;
         }
+        const nome = file.name;
+        const categoria = user.uid;
 
         try {
+
+            console.log("UID do usuário atual:", user?.uid);
+            console.log("Livro:", file.name);
+            const pdfsRef = collection(db, 'usuarios', user.uid, 'pdfs');
+            const q = query(
+                pdfsRef,
+                where('nome', '==', file.name),
+                where('categoria', '==', user.uid)
+            );
+            const existing = await getDocs(q);
+
+            if (!existing.empty) {
+                alert('Esse item já existe na sua conta!');
+                return;
+            }
+
             const itemComArquivo = {
-            nome: novoItem,
-            categoria: novaCategoria,
+            nome,
+            categoria,
             arquivo: file
                 ? {
                     nome: file.name,
@@ -101,7 +122,8 @@ export function Upload({navigation}) {
             setNovoItem('');
             setFile(null);
             setModalVisible(false);
-            carregarDados(); // nova versão
+            carregarDados();
+            alert('Adionado livro com sucesso!');            
         } catch (error) {
             console.error('Erro ao adicionar PDF:', error);
             alert('Erro ao adicionar PDF');
