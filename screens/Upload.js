@@ -1,25 +1,20 @@
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { SafeAreaView, Text, View, TouchableOpacity, Button, Image } from "react-native";
+import { SafeAreaView, Text, View, TouchableOpacity, Image } from "react-native";
 import UploadImage from '../assets/uploadImage.png'
 import React, { useState, useEffect } from 'react';
 
 import * as DocumentPicker from 'expo-document-picker';
 
 import { styles_app, styles_upload} from "../styles/styles";
-
 import { getAuth } from 'firebase/auth';
-
 import { collection, getDocs,getDoc,updateDoc, setDoc, doc,arrayUnion  } from 'firebase/firestore';
 
 
 import {db} from '../FireBaseConfig'
 
-
-
 export function Upload({navigation}) {
     const [file, setFile] = useState(null);
     const [data, setData] = useState([]);
-    const [modalVisible, setModalVisible] = useState(false);
     const [novaCategoria, setNovaCategoria] = useState('');
     const [novoItem, setNovoItem] = useState('');
 
@@ -58,13 +53,12 @@ export function Upload({navigation}) {
                 type: 'application/pdf',
                 copyToCacheDirectory: true,
                 multiple: false,
+                base64: false,
             });
 
             if (result.canceled)return;
             
-            console.log('Documento selecionado:', result);
             setFile(result.assets[0]);
-            console.log('Arquivo selecionado:', file);
         } catch (error) {
             console.error('Erro ao selecionar documento:', error);
             
@@ -132,8 +126,6 @@ export function Upload({navigation}) {
         }
     };
 
-
-
     return (
         <SafeAreaProvider>
             <SafeAreaView style={[styles_app.container, { backgroundColor: "#1D3557" }]}>
@@ -142,16 +134,11 @@ export function Upload({navigation}) {
                         <Image source={UploadImage} style={styles_upload.image}/>
                         <TouchableOpacity
                             style={styles_upload.button}
-                            onPress={() => handleDocumentPicker()}
+                            onPress={handleDocumentPicker}
                         >
                             <Text style={styles_upload.button.text}>Selecionar</Text>
                             <Text style={styles_upload.button.text}>Arquivo</Text>
                         </TouchableOpacity>
-                        {file && (
-                            <View>
-                                <Text style={styles_upload.text}>Nome: {file.name}</Text>
-                            </View>
-                        )}
                         <TouchableOpacity
                             style={[styles_upload.button, {backgroundColor: "#3D899C"}]}
                             onPress={() => adicionarItem()}

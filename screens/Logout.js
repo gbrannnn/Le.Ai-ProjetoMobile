@@ -28,30 +28,31 @@ export function Logout({ navigation }) {
 
     return (
         <SafeAreaProvider>
-            <SafeAreaView style={styles_app.container}>
+            <SafeAreaView style={[styles_app.container]}>
                 <Modal
                     animationType="slide"
                     transparent={true}
                     visible={modalVisible}
                     onRequestClose={() => setModalVisible(false)}
                 >
-                    <View style={styles_logout.centeredView}>
+                    <View style={styles_logout.modalBackground}>
                         <View style={styles_logout.modalView}>
                             <Text style={styles_logout.modalText}>Deseja sair da sua conta?</Text>
+                            <View style={[{ flexDirection: "row", justifyContent: "space-around"}]}>
+                                <Pressable
+                                    style={[styles_logout.button, styles_logout.button.nao]}
+                                    onPress={() => handlerLogout(false)}
+                                >
+                                    <Text style={styles_logout.textStyle}>Não</Text>
+                                </Pressable>
 
-                            <Pressable
-                                style={[styles_logout.button, styles_logout.buttonClose]}
-                                onPress={() => handlerLogout(false)}
-                            >
-                                <Text style={styles_logout.textStyle}>Não</Text>
-                            </Pressable>
-
-                            <Pressable
-                                style={[styles_logout.button, styles_logout.buttonClose]}
-                                onPress={() => handlerLogout(true)}
-                            >
-                                <Text style={styles_logout.textStyle}>Sim</Text>
-                            </Pressable>
+                                <Pressable
+                                    style={[styles_logout.button, styles_logout.button.sim]}
+                                    onPress={() => handlerLogout(true)}
+                                >
+                                    <Text style={styles_logout.textStyle}>Sim</Text>
+                                </Pressable>
+                            </View>
                         </View>
                     </View>
                 </Modal>

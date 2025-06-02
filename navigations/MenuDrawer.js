@@ -1,9 +1,10 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import { Upload } from '../screens/Upload';
-import { Colecao } from '../screens/Colecao';
 import { HomeButtomTabs } from './HomeButtomTabs';
 import { Logout } from '../screens/Logout';
+import { RenderPdf } from '../screens/RenderPdf';
+
 
 export function MenuDrawer({ navigation }) {
     const Drawer = createDrawerNavigator();
@@ -37,7 +38,7 @@ export function MenuDrawer({ navigation }) {
                 },
                 headerTitleAlign: 'center',
                 lazy: true,
-                
+
             }}
         >
             <Drawer.Screen
@@ -48,15 +49,19 @@ export function MenuDrawer({ navigation }) {
                 component={HomeButtomTabs}
             />
             <Drawer.Screen
-                name='Coleção'
-                component={Colecao}
-            />
-            <Drawer.Screen
                 name='Upload'
                 options={{
                     title: 'Upload',
                 }}
                 component={Upload}
+            />
+            <Drawer.Screen
+                name="RenderPdf"
+                component={RenderPdf}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: { display: 'none' },
+                }}
             />
             <Drawer.Screen
                 options={{

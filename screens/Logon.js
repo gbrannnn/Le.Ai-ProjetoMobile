@@ -65,6 +65,7 @@ export function Logon({navigation}){
                 placeholder="senha"
                 placeholderTextColor="#d3d3d3"
                 onChangeText={setSenha}
+                secureTextEntry={true}
                 value={senha}
                 style={styles_login.textInput}
             />
@@ -74,6 +75,7 @@ export function Logon({navigation}){
                 placeholder="senha check"
                 placeholderTextColor="#d3d3d3"
                 onChangeText={setSenhaCheck}
+                secureTextEntry={true}
                 value={senhaCheck}
                 style={styles_login.textInput}
             />

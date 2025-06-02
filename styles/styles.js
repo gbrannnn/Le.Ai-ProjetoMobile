@@ -11,33 +11,32 @@ export const styles_app = StyleSheet.create({
 
 export const styles_login = StyleSheet.create({
   container: {
-      flex: 1,
-      backgroundColor: '#D8F8B7',
-      alignItems: 'center',
-      justifyContent: 'center',
+    flex: 1,
+    backgroundColor: '#D8F8B7',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   textInput: {
-      width: 300,
-      height: 35,
-      backgroundColor: '#FFFFFF',
-      textAlign: 'left',
-      paddingLeft: 10,
-      margin: 10,
-      borderRadius: 20,
-      borderWidth: 0,
-      shadowColor: 'black',
-      shadowOffset: { 
-          width: -1.5,
-          height: 3,
-      },
-      shadowOpacity: 0.18,
+    width: 300,
+    height: 35,
+    backgroundColor: '#FFFFFF',
+    textAlign: 'left',
+    paddingLeft: 10,
+    margin: 10,
+    borderRadius: 20,
+    borderWidth: 0,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: -1.5,
+      height: 3,
+    },
+    shadowOpacity: 0.18,
   },
   text: {
-      fontSize: 32,
-      fontWeight: 'bold',
-      color: '#1D3557',
-      marginBottom: 50,
-      
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#1D3557',
+    marginBottom: 50,
   },
   topRightCircle: {
     position: 'absolute',
@@ -85,19 +84,19 @@ export const styles_login = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   button: {
-      marginTop: 50,
-      width: 150,
-      height: 30,
-      backgroundColor: '#45A298',
-      borderRadius: 20,
-      alignItems: "center",
-      justifyContent: "center",
-      fontSize: 10
+    marginTop: 50,
+    width: 150,
+    height: 30,
+    backgroundColor: '#45A298',
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 10
   },
   button_text: {
-      fontSize: 12,
-      fontWeight: 'bold',
-      color: "#F1FAEE"
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: "#F1FAEE"
   }
 });
 
@@ -113,7 +112,7 @@ export const styles_splash = StyleSheet.create({
     height: 200,
     resizeMode: "cover"
   },
-    topRightCircle: {
+  topRightCircle: {
     position: 'absolute',
     top: -100,
     right: -100,
@@ -140,7 +139,7 @@ export const styles_splash = StyleSheet.create({
     transform: [{ scale: 1.5 }],
   },
 
-  
+
 });
 
 export const styles_icon = StyleSheet.create({
@@ -160,88 +159,95 @@ export const styles_icon = StyleSheet.create({
 });
 
 export const styles_logout = StyleSheet.create({
-    centeredView: {
-        //flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+  modalBackground: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)', // ⬅️ Fundo preto com 60% de opacidade
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: '#1D3557',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
     },
-    modalView: {
-        margin: 20,
-        backgroundColor: 'white',
-        borderRadius: 20,
-        padding: 35,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5,
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalText: {
+    color: '#F1FAEE',
+    fontSize: 16,
+    fontWeight: 'bold', 
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  button: {
+    width: 60,
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    sim: {
+      backgroundColor: '#E29578',
+      marginLeft: 15,
     },
-    button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2,
-    },
-    buttonOpen: {
-        backgroundColor: '#F194FF',
-    },
-    buttonClose: {
-        backgroundColor: '#2196F3',
-    },
-    textStyle: {
-        color: 'white',
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    modalText: {
-        marginBottom: 15,
-        textAlign: 'center',
-    },
+    nao: {
+      backgroundColor: '#45A298',
+      marginRight: 15,
+    }
+  },
+  textStyle: {
+    color: '#F1FAEE',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export const styles_upload = StyleSheet.create({
-    container: {
-        flex: 1,
-        width: '97%',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: "#F1FAEE",
-        borderRadius: 5
-    },
-    card: {
-        width: 320,
-        height: 575,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: "#1D3557",
-        borderRadius: 50,
-    },
-    image: {
-        width: 160,
-        height: 140,
-        resizeMode: "contain",
-    },
+  container: {
+    flex: 1,
+    width: '97%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#F1FAEE",
+    borderRadius: 5
+  },
+  card: {
+    width: 320,
+    height: 575,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#1D3557",
+    borderRadius: 50,
+  },
+  image: {
+    width: 160,
+    height: 140,
+    resizeMode: "contain",
+  },
 
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: "#1D3557",
+  },
+  button: {
+    width: 130,
+    height: 45,
+    backgroundColor: '#45A298',
+    borderRadius: 20,
+    marginTop: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
     text: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: "#1D3557",
-    },
-    button: {
-        width: 130,
-        height: 45,
-        backgroundColor: '#45A298',
-        borderRadius: 20,
-        marginTop: 10,
-        alignItems: 'center',
-        justifyContent: 'center',
-        text: {
-            fontSize: 12,
-            color: '#F1FAEE',
-            fontWeight: 'bold',
-        }
+      fontSize: 12,
+      color: '#F1FAEE',
+      fontWeight: 'bold',
     }
+  }
 });
