@@ -23,16 +23,10 @@ export function Upload({navigation}) {
         carregarDados();
         }, []);
 
-    
-
     const auth = getAuth();
     const user = auth.currentUser;
 
-
     const carregarDados = async () => {
-        const auth = getAuth();
-        const user = auth.currentUser;
-
         if (!user) return;
 
         try {
@@ -72,9 +66,6 @@ export function Upload({navigation}) {
         }
     };
     const adicionarItem = async () => {
-        const auth = getAuth();
-        const user = auth.currentUser;
-
         if (!user) {
             alert('Usuário não autenticado!');
             return;
@@ -130,15 +121,21 @@ export function Upload({navigation}) {
         }
     };
 
-
-
-
     return (
         <SafeAreaProvider>
             <SafeAreaView style={[styles_app.container, { backgroundColor: "#1D3557" }]}>
                 <View style={styles_upload.container}>
                     <View style={styles_upload.card}>
                         <Image source={UploadImage} style={styles_upload.image}/>
+                        {
+                            file ? (
+                                <View style={styles_upload.nameFileCard}>
+                                    <Text style={styles_upload.text}>{file.name}</Text>
+                                </View>
+                            ) : (
+                                <Text style={styles_upload.text}></Text>
+                            )
+                        }
                         <TouchableOpacity
                             style={styles_upload.button}
                             onPress={handleDocumentPicker}

@@ -9,6 +9,69 @@ export const styles_app = StyleSheet.create({
   },
 });
 
+export const styles_home = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '97%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#F1FAEE",
+    borderRadius: 5
+  },
+  flatList: {
+    width: '100%',
+  },
+  item: {
+    width: 150,
+    height: 250,
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  card: {
+    width: "100%",
+    height: 250,
+    textAlign: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: "#1D3557",
+    borderRadius: 25,
+  },
+  text: {
+    fontSize: 12,
+    color: '#F1FAEE',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  ferramentas: {
+    width: "100%",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'left',
+    marginBottom: 10,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  olho:{
+    width: 28,
+    height: 18,
+    marginTop: 3,
+  },
+  caneta: {
+    width: 16,
+    height: 16,
+    marginTop: 3,
+  },
+  lixeira: {
+    width: 12,
+    height: 18,
+    marginTop: 3,
+  }
+})
+
 export const styles_login = StyleSheet.create({
   container: {
     flex: 1,
@@ -183,7 +246,7 @@ export const styles_logout = StyleSheet.create({
   modalText: {
     color: '#F1FAEE',
     fontSize: 16,
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
     marginBottom: 15,
     textAlign: 'center',
   },
@@ -229,12 +292,21 @@ export const styles_upload = StyleSheet.create({
     width: 160,
     height: 140,
     resizeMode: "contain",
+    position: 'relative',
+    marginBottom: "20%",
   },
-
+  nameFileCard: {
+    paddingRight: 25,
+    paddingLeft: 25,
+    marginBottom: 20,
+    alignContent: 'center',
+    justifyContent: 'center',
+  },
   text: {
-    fontSize: 20,
+    textAlign: 'center',
+    fontSize: 16,
     fontWeight: 'bold',
-    color: "#1D3557",
+    color: "#F1FAEE",
   },
   button: {
     width: 130,

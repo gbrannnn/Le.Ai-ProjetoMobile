@@ -18,7 +18,6 @@ export function HomeButtomTabs({navigation}){
     return(
         <Tab.Navigator 
             screenOptions={{
-
                 headerStyle: {
                     backgroundColor: '#D8F8B7',
                     borderWidth: 1
@@ -26,15 +25,12 @@ export function HomeButtomTabs({navigation}){
                 headerTitleStyle: {
                     color: '#1D3557'
                 },
-             
                 headerTitleAlign: "center",
                 tabBarStyle: {
                     backgroundColor: '#3D6271',
                     borderWidth: 0
                 },
              tabBarShowLabel: false,
-             
-
             }}>
             <Tab.Screen 
                 name='Biblioteca'
