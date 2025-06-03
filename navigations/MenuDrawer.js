@@ -4,6 +4,10 @@ import { Upload } from '../screens/Upload';
 import { HomeButtomTabs } from './HomeButtomTabs';
 import { Logout } from '../screens/Logout';
 import { RenderPdf } from '../screens/RenderPdf';
+import { Update } from '../screens/Update'; 
+import { Delete } from '../screens/Delete';
+import { Login } from '../screens/Login';
+
 
 
 export function MenuDrawer({ navigation }) {
@@ -63,6 +67,30 @@ export function MenuDrawer({ navigation }) {
                     drawerItemStyle: { display: 'none' },
                 }}
             />
+            <Drawer.Screen
+                name="Update"
+                component={Update}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: { display: 'none' },
+                }}
+            />
+            <Drawer.Screen
+                name="Delete"
+                component={Delete}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: { display: 'none' },
+                }}
+            />
+            <Drawer.Screen
+                name="Login"
+                component={Login}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: { display: 'none' },
+                }}
+            />                        
             <Drawer.Screen
                 options={{
                     headerShown: false

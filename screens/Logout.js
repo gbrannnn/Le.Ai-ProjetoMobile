@@ -1,6 +1,7 @@
 import { SafeAreaView, Text, Modal, Pressable, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useState } from "react";
+import { CommonActions } from '@react-navigation/native';
 
 import { getAuth, signOut } from "firebase/auth";
 
@@ -17,12 +18,21 @@ export function Logout({ navigation }) {
         }
 
         const auth = getAuth();
-        signOut(auth).then(() => {
+        signOut(auth)
+            .then(() => {
             console.log("Logout realizado com sucesso");
-            navigation.replace("Login");
-        }).catch((error) => {
-            console.log(error);
-        });
+
+
+            navigation.dispatch(
+                CommonActions.reset({
+                    index: 0,
+                    routes: [{ name: 'Login' }],
+                })
+            );
+            })
+            .catch((error) => {
+            console.log("Erro ao realizar o logout:", error);           
+         });
         return;
     };
 

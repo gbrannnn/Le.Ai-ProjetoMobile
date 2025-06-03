@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Splash } from './screens/Splash';
 import { Login } from './screens/Login';
 import { Logon } from './screens/Logon';
+
 import { HomeButtomTabs } from './navigations/HomeButtomTabs';
 import { MenuDrawer } from './navigations/MenuDrawer';
 
@@ -22,18 +23,15 @@ export default function App() {
   const [CurrentUser, setCurrentUser] = useState(null)
 
 
-
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const checkLogin = onAuthStateChanged(auth, (user) => {
-        setCurrentUser(user);
-        console.log(CurrentUser);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUser(user);
+      setTimeout(() => {
         setIsLoading(false);
-      });
+      }, 3000);
+    });
 
-      return () => checkLogin(); 
-    }, 3500);
-    return () => clearTimeout(timer); 
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -50,7 +48,6 @@ export default function App() {
           </>
         )}
         <Stack.Screen name="Menu" component={MenuDrawer} />
-
       </Stack.Navigator>
     </NavigationContainer>
   );

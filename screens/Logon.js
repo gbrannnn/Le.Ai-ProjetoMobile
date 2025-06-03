@@ -31,7 +31,7 @@ export function Logon({navigation}){
             const userCredential = await createUserWithEmailAndPassword(auth, email, senhaCheck);
             const user = userCredential.user;
 
-            // 👇 Cria documento no Firestore com dados do usuário
+            //  Cria documento no Firestore com dados do usuário
             await setDoc(doc(db, "usuarios", user.uid), {
                 email: user.email,
                 criadoEm: new Date(),
@@ -81,7 +81,7 @@ export function Logon({navigation}){
             <TextInput
                 inputMode="text"
                 keyboardType="default"
-                placeholder="senha check"
+                placeholder="Repita a senha"
                 placeholderTextColor="#d3d3d3"
                 onChangeText={setSenhaCheck}
                 secureTextEntry={true}

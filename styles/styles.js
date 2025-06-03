@@ -224,7 +224,7 @@ export const styles_icon = StyleSheet.create({
 export const styles_logout = StyleSheet.create({
   modalBackground: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.6)', // ⬅️ Fundo preto com 60% de opacidade
+    backgroundColor: 'rgba(0,0,0,0.6)', //Fundo preto com 60% de opacidade
     justifyContent: 'center',
     alignItems: 'center',
   },

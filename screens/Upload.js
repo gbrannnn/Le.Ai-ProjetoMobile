@@ -104,7 +104,7 @@ export function Upload({navigation}) {
             criadoEm: new Date(),
             };
 
-            // 👇 Cria um novo documento na subcoleção pdfs
+            // subcoleção pdfs
             const pdfRef = doc(collection(db, 'usuarios', user.uid, 'pdfs'));
             await setDoc(pdfRef, itemComArquivo);
 

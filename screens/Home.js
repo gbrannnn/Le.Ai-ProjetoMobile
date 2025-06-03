@@ -50,6 +50,7 @@ export function Home({ navigation }) {
                         contentContainerStyle={styles_home.flatList}
                         numColumns={2}
                         keyExtractor={(item) => item.id}
+                    
                         renderItem={({ item }) => (
                             <View style={styles_home.item}>        
                                 <View style={styles_home.card}>
@@ -58,11 +59,19 @@ export function Home({ navigation }) {
                                 <View style={styles_home.ferramentas}>
                                     <TouchableOpacity
                                         title="Editar"
+                                        onPress={() => navigation.navigate('Update',{ 
+                                            fileId: item.id, 
+                                            currentName: item.name 
+                                        })}
                                     >
                                         <Image source={caneta} style={styles_home.caneta}/>
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         title="Excluir"
+                                        onPress={() => navigation.navigate('Delete',{ 
+                                            fileId: item.id,
+                                            fileName: item.name 
+                                        })}
                                     >
                                         <Image source={lixeira} style={styles_home.lixeira}/>
                                     </TouchableOpacity>
@@ -75,6 +84,11 @@ export function Home({ navigation }) {
                                 </View>
                             </View>
                         )}
+                         ListEmptyComponent={() => (
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 50 }}>
+                                <Text style={{ color: 'black', fontSize: 18 }}>Você não tem livros cadastrados.</Text>
+                            </View>
+                        )}    
                     />
                 </View>
             </SafeAreaView>

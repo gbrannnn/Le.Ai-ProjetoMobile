@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AppBiblioteca",
+    "name": "Lê.Aí",
     "slug": "AppBiblioteca",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,6 +16,10 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
